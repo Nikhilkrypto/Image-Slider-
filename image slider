@@ -65,10 +65,7 @@ img{
 }
 //js
 const ImgArray=['https://www.w3schools.com/howto/img_nature_wide.jpg','https://www.w3schools.com/howto/img_snow_wide.jpg','https://www.w3schools.com/howto/img_lights_wide.jpg','https://www.w3schools.com/howto/img_mountains_wide.jpg'];
-// for(let i=0;i<ImgArray.length;i++)
-// {
-//     console.log(`the index is ${i} and the value is `,ImgArray[i]);
-// }
+
 const RightBtn=document.querySelector('.right');
 var image=document.querySelector('#images');
 var count=0;
