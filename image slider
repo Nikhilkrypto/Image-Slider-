@@ -1,0 +1,108 @@
+//html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+
+</head>
+<body>
+    
+    <div class="container">
+        <button class="left">
+            <i class="ri-arrow-left-s-line"></i>
+        </button>
+        
+        <img src="" id="images" >
+        <button class="right">
+            <i class="ri-arrow-right-s-line"></i>
+        </button>
+        
+    </div>
+
+
+    <script src="navbar.js"></script>
+</body>
+</html>
+//css
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container
+{
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid red;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+img{
+    width: 100%;
+    height: 50%;
+    border: 1px solid red;
+    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.right
+{
+    position: absolute;
+    right: 0;
+
+}
+.left{
+    position: absolute;
+    left: 0;
+}
+//js
+const ImgArray=['https://www.w3schools.com/howto/img_nature_wide.jpg','https://www.w3schools.com/howto/img_snow_wide.jpg','https://www.w3schools.com/howto/img_lights_wide.jpg','https://www.w3schools.com/howto/img_mountains_wide.jpg'];
+// for(let i=0;i<ImgArray.length;i++)
+// {
+//     console.log(`the index is ${i} and the value is `,ImgArray[i]);
+// }
+const RightBtn=document.querySelector('.right');
+var image=document.querySelector('#images');
+var count=0;
+const LeftBtn=document.querySelector('.left')
+RightBtn.addEventListener('click',rightChanges);
+LeftBtn.addEventListener('click',LeftChanges);
+image.setAttribute('src',`${ImgArray[count]}`)
+function rightChanges()
+{
+    console.log(count);
+    if(count<=ImgArray.length-2)
+    {
+        image.setAttribute('src',`${ImgArray[++count]}`);
+        console.log(count);
+    }
+    
+    else if(count==ImgArray.length-1)
+    {
+        count=0;
+        image.setAttribute('src',`${ImgArray[count]}`);
+        console.log(count);
+    }
+    
+}
+function LeftChanges()
+{
+    console.log(count);
+    if(count>0&&count<ImgArray.length)
+    {
+        image.setAttribute('src',`${ImgArray[count--]}`);
+    }
+    else{
+        count=ImgArray.length-1;
+        image.setAttribute('src',`${ImgArray[count]}`);
+    }
+    console.log(count);
+}
